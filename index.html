@@ -1,0 +1,217 @@
+<html>
+
+<head>
+    <center>
+        <h1>¿Qué son los datos abstractos?
+        </h1>
+    </center>
+    <link rel="icon" href="https://www.pngrepo.com/png/228677/512/gamer.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="queEs">
+
+        <p>
+        Los datos abstractos son estructuras de datos que se definen por su comportamiento en lugar de su
+            implementación. En otras palabras, son objetos que se utilizan para almacenar datos y realizar operaciones
+            en ellos, pero que no especifican cómo se llevan a cabo estas operaciones. En lugar de eso, se describen las
+            propiedades y características generales de la estructura de datos, y se dejan los detalles de la
+            implementación para cada caso en particular.
+        </p>h1
+        
+    </div>
+    <div class="tipos">
+        <center>
+            <h1>Lista</h1>
+            <h3>Una lista es una colección ordenada de elementos. Los elementos pueden ser de cualquier tipo de datos, y
+                se accede a ellos mediante su posición dentro de la lista. Las operaciones comunes que se pueden
+                realizar en una lista son:
+
+                Agregar un elemento al final de la lista. Eliminar un elemento de la lista. Buscar un elemento en la
+                lista. Obtener el número de elementos en la lista.
+            </h3>
+            <h1>Pila</h1>
+            <h3>
+                Una pila es una estructura de datos que se utiliza para almacenar elementos en la que el último elemento
+                en ser insertado es el primero en ser eliminado. Las operaciones comunes que se pueden realizar en una
+                pila son:
+                Empujar un elemento a la pila (añadir un elemento al final de la pila). Sacar un elemento de la pila
+                (eliminar el último elemento de la pila). Obtener el número de elementos en la pila.
+            </h3>
+            <h1>Cola</h1>
+            <h3>
+                Una cola es una estructura de datos que se utiliza para almacenar elementos en la que el primer elemento
+                en ser insertado es el primero en ser eliminado. Las operaciones comunes que se pueden realizar en una
+                cola son:
+                Añadir un elemento a la cola (añadir un elemento al final de la cola). Eliminar un elemento de la cola
+                (eliminar el primer elemento de la cola). Obtener el número de elementos en la cola.
+            </h3>
+            <h1>Árbol</h1>
+            <h3>
+                Un árbol es una estructura de datos jerárquica que se utiliza para representar datos en forma de árbol.
+                El nodo superior se llama la raíz, y cada nodo puede tener varios hijos. Los nodos que no tienen hijos
+                se llaman hojas. Las operaciones comunes que se pueden realizar en un árbol son:
+                Insertar un nodo en el árbol. Eliminar un nodo del árbol. Buscar un nodo en el árbol.
+            </h3>
+        </center>
+            <h1>
+                Ejemplo de implementación de una lista en Python
+            </h1>
+
+            <p>class Lista:<br>
+                def init(self):<br>
+                self.items = []<br>
+                def agregar(self, item):<br>
+                self.items.append(item)<br>
+                def eliminar(self, item):<br>
+                self.items.remove(item)<br>
+                def buscar(self, item):<br>
+                return item in self.items<br>
+                def obtener_tamaño(self):<br>
+                return len(self.items)</p>
+            <h1>Ejemplo de implementación de una pila en Python</h1>
+            <p>
+                class Pila:<br>
+                def init(self):<br>
+                self.items = []<br>
+                def esta_vacia(self):<br>
+                return self.items == []<br>
+                def empujar(self, item):<br>
+                self.items.append(item)<br>
+                def sacar(self):<br>
+                return self.items.pop()<br>
+                def obtener_tamaño(self):<br>
+                return len(self.items)<br>
+                mi_pila = Pila()<br>
+                print(mi_pila.esta_vacia()) # True<br>
+                mi_pila.empujar(1)<br>
+                mi_pila.empujar(2)<br>
+                mi_pila.empujar(3)<br>
+                print(mi_pila.esta_vacia()) # False<br>
+                print(mi_pila.obtener_tamaño()) # 3<br>
+                print(mi_pila.sacar()) # 3<br>
+                print(mi_pila.sacar()) # 2<br>
+                print(mi_pila.sacar()) # 1<br>
+                print(mi_pila.esta_vacia()) # True<br>
+            <h1>Ejemplo de implementación de una cola en Python</h1>
+            <p>
+                class Cola:<br>
+                def init(self):<br>
+                self.items = []<br>
+                def esta_vacia(self):<br>
+                return self.items == []<br>
+                def encolar(self, item):<br>
+                self.items.insert(0, item)<br>
+                def desencolar(self):<br>
+                return self.items.pop()<br>
+                def obtener_tamaño(self):<br>
+                return len(self.items)<br>
+                mi_cola = Cola()<br>
+                print(mi_cola.esta_vacia()) # True<br>
+                mi_cola.encolar(1)<br>
+                mi_cola.encolar(2)<br>
+                mi_cola.encolar(3)<br>
+                print(mi_cola.esta_vacia()) # False<br>
+                print(mi_cola.obtener_tamaño()) # 3<br>
+                print(mi_cola.desencolar()) # 1<br>
+                print(mi_cola.desencolar()) # 2<br>
+                print(mi_cola.desencolar()) # 3<br>
+                print(mi_cola.esta_vacia()) # True<br>
+            </p>
+            <h1>Ejemplo de implementación de una árbol en Python</h1>
+            <p>
+                class Nodo:<br>
+                def init(self, valor):<br>
+                self.valor = valor<br>
+                self.hijo_izquierdo = None<br>
+                self.hijo_derecho = None<br>
+                class Arbol:<br>
+                def init(self):<br>
+                self.raiz = None<br>
+                def agregar_nodo(self, valor):<br>
+                nuevo_nodo = Nodo(valor)<br>
+                if self.raiz is None:<br>
+                self.raiz = nuevo_nodo<br>
+                else:<br>
+                self._agregar_nodo(valor, self.raiz)<br>
+                def _agregar_nodo(self, valor, nodo_actual):<br>
+                if valor < nodo_actual.valor:<br>
+                    if nodo_actual.hijo_izquierdo is None:<br>
+                    nodo_actual.hijo_izquierdo = Nodo(valor)<br>
+                    else:<br>
+                    self._agregar_nodo(valor, nodo_actual.hijo_izquierdo)<br>
+                    else:<br>
+                    if nodo_actual.hijo_derecho is None:<br>
+                    nodo_actual.hijo_derecho = Nodo(valor)<br>
+                    else:<br>
+                    self._agregar_nodo(valor, nodo_actual.hijo_derecho)<br>
+                    def buscar(self, valor):<br>
+                    if self.raiz is not None:<br>
+                    return self._buscar(valor, self.raiz)<br>
+                    else:<br>
+                    return None<br>
+                    def _buscar(self, valor, nodo_actual):<br>
+                    if valor == nodo_actual.valor:<br>
+                    return nodo_actual<br>
+                    elif valor < nodo_actual.valor and nodo_actual.hijo_izquierdo is not None:<br>
+                        return self._buscar(valor, nodo_actual.hijo_izquierdo)<br>
+                        elif valor > nodo_actual.valor and nodo_actual.hijo_derecho is not None:<br>
+                        return self._buscar(valor, nodo_actual.hijo_derecho)<br>
+                        def eliminar(self, valor):<br>
+                        if self.raiz is not None:<br>
+                        self.raiz = self._eliminar(valor, self.raiz)<br>
+                        def _eliminar(self, valor, nodo_actual):<br>
+                        if nodo_actual is None:<br>
+                        return nodo_actual<br>
+                        if valor == nodo_actual.valor:<br>
+                        if nodo_actual.hijo_izquierdo is None and nodo_actual.hijo_derecho is None:<br>
+                        return None<br>
+                        if nodo_actual.hijo_izquierdo is None:<br>
+                        return nodo_actual.hijo_derecho<br>
+                        if nodo_actual.hijo_derecho is None:<br>
+                        return nodo_actual.hijo_izquierdo<br>
+                        nodo_min = self._buscar_min(nodo_actual.hijo_derecho)<br>
+                        nodo_actual.valor = nodo_min.valor<br>
+                        nodo_actual.hijo_derecho = self._eliminar(nodo_min.valor, nodo_actual.hijo_derecho)<br>
+                        elif valor < nodo_actual.valor:<br>
+                            nodo_actual.hijo_izquierdo = self._eliminar(valor, nodo_actual.hijo_izquierdo)<br>
+                            else:<br>
+                            nodo_actual.hijo_derecho = self._eliminar(valor, nodo_actual.hijo_derecho)<br>
+                            return nodo_actual<br>
+                            def _buscar_min(self, nodo_actual):<br>
+                            while nodo_actual.hijo_izquierdo is not None:<br>
+                            nodo_actual = nodo_actual.hijo_izquierdo<br>
+                            return nodo_actual<br>
+                            mi_arbol = ArbolBinario()<br>
+                            # Agregar nodos al árbol<br>
+                            mi_arbol.agregar_nodo(5)<br>
+                            mi_arbol.agregar_nodo(3)<br>
+                            mi_arbol.agregar_nodo(7)<br>
+                            mi_arbol.agregar_nodo(2)<br>
+                            mi_arbol.agregar_nodo(4)<br>
+                            mi_arbol.agregar_nodo(6)<br>
+                            mi_arbol.agregar_nodo(8)<br>
+                            # Buscar un nodo en el árbol<br>
+                            nodo_buscado = mi_arbol.buscar_nodo(4)<br>
+                            if nodo_buscado is not None:<br>
+                            print("El nodo con valor 4 ha sido encontrado en el árbol.")<br>
+                            else:<br>
+                            print("El nodo con valor 4 no ha sido encontrado en el árbol.")<br>
+                            # Eliminar un nodo del árbol<br>
+                            mi_arbol.eliminar_nodo(7)<br>
+                            # Imprimir los nodos del árbol en orden ascendente<br>
+                            def imprimir_nodos_orden_ascendente(nodo_actual):<br>
+                            if nodo_actual is not None:<br>
+                            imprimir_nodos_orden_ascendente(nodo_actual.izquierdo)<br>
+                            print(nodo_actual.valor)<br>
+                            imprimir_nodos_orden_ascendente(nodo_actual.derecho)<br>
+                            print("Los nodos del árbol en orden ascendente son:")<br>
+                            imprimir_nodos_orden_ascendente(mi_arbol.raiz)<br>
+            </p>
+            </p>
+       
+    </div>
+</body>
+
+</html>
